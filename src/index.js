@@ -20,9 +20,21 @@ app.engine('hbs', engine({
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 
-app.get('/trang-chu', (req, res) => {
+app.get('/', (req, res) => {
     res.render('home');
-})
+});
+
+app.get('/news', (req, res) => {
+  res.render('home');
+});
+
+app.get('/search', (req, res) => {
+  res.render('search');
+});
+
+app.post('/search', (req, res) => {
+  res.render('search');
+});
 
 //127.0.0.1 
 app.listen(port, () => {

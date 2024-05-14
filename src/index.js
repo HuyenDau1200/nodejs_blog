@@ -7,7 +7,12 @@ const app = express();
 const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
-console.log (path.join(__dirname, 'public'));
+
+//Middleware to handle data from submit form
+app.use(express.urlencoded({
+  extended: true
+}));
+app.use(express.json());
 
 //http logger
 app.use(morgan('combined'));
@@ -33,7 +38,8 @@ app.get('/search', (req, res) => {
 });
 
 app.post('/search', (req, res) => {
-  res.render('search');
+  console.log(req.body);
+  res.send('');
 });
 
 //127.0.0.1 

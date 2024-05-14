@@ -21,7 +21,7 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 
 app.get('/trang-chu', (req, res) => {
-    res.render('news');
+    res.render('home');
 })
 
 //127.0.0.1 

@@ -6,6 +6,9 @@ const {engine} = require('express-handlebars');
 const app = express();
 const port = 3000;
 
+app.use(express.static(path.join(__dirname, 'public')));
+console.log (path.join(__dirname, 'public'));
+
 //http logger
 app.use(morgan('combined'));
 
@@ -15,7 +18,7 @@ app.engine('hbs', engine({
 }));
 
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resource/views'));
+app.set('views', path.join(__dirname, 'resources/views'));
 
 app.get('/trang-chu', (req, res) => {
     res.render('news');

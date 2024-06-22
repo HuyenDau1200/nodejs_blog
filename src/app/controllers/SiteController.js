@@ -1,15 +1,26 @@
 const Course = require('../models/Course');
 class SiteController {
 
+    //use async/await 
     //[GET] /
-    async index(req, res) {
-      try {
-        const courses = await Course.find({});
+    // async index(req, res, next) {
+      // try {
+      //   const courses = await Course.find({});
 
-        res.json(courses);
-      } catch (error) {
-        res.json({error: 'ERROR!'});
-      }
+      //   res.json(courses);
+      // } catch (error) {
+      //   res.json({error: 'ERROR!'});
+      // }
+        
+        // res.render('home');
+    // }
+
+    //using promise
+    //[GET] /
+    index(req, res, next) {
+      Course.find({})
+          .then(courses => res.json(courses))
+          .catch(next);
         
         // res.render('home');
     }
